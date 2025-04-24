@@ -28,13 +28,13 @@
 import axios from "axios";
 
 const API_KEY = "cal_live_eb4258035eb5e1230ceaaf1d889bf6d1"; // Mets ta vraie clé API
-const USERNAME = "daniel-gbogou-y44moc"; // Mets ton vrai identifiant Cal.com
+const TEAM_MEMBERS = ["daniel-gbogou-y44moc","azerty89 "];// Mets ton vrai identifiant Cal.com
 
 export async function getAvailableSlots() {
   try {
     console.log("🔍 Envoi de la requête à l'API Cal.com...");
     const response = await axios.get(
-      `https://api.cal.com/v1/booking/slots?username=${USERNAME}`,
+      `https://api.cal.com/v1/booking/slots?username=${TEAM_MEMBERS}`,
       {
         headers: {
           Authorization: `Bearer ${API_KEY}`,

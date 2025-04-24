@@ -18,4 +18,21 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+
 }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#appointment-screen {
+  height: 100vh;  /* 100% de la hauteur de l’écran */
+  width: 100vw;   /* 100% de la largeur de l’écran */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
