@@ -27,24 +27,16 @@
 
 import axios from "axios";
 
-const API_KEY = "cal_live_eb4258035eb5e1230ceaaf1d889bf6d1"; // Mets ta vraie clé API
-const TEAM_MEMBERS = ["daniel-gbogou-y44moc","azerty89 "];// Mets ton vrai identifiant Cal.com
-
 export async function getAvailableSlots() {
+  const username = 'daniel-gbogou-y44moc';
+  const id = 1381468; // Remplace par l'ID de la réservation que tu veux récupérer
   try {
-    console.log("🔍 Envoi de la requête à l'API Cal.com...");
-    const response = await axios.get(
-      `https://api.cal.com/v1/booking/slots?username=${TEAM_MEMBERS}`,
-      {
-        headers: {
-          Authorization: `Bearer ${API_KEY}`,
-        },
-      }
-    );
-    console.log("✅ Réponse reçue :", response.data);
-    return response.data;
+
+    const response = await fetch(`/api/cal/slots`)
+    .then(response => response.json())
+    .then(response => console.log(response))
+    .catch(err => console.error(err));
   } catch (error) {
-    console.error("❌ Erreur lors de la requête API :", error);
-    return [];
+    console.error("Error fetching available slots:", error);
   }
 }

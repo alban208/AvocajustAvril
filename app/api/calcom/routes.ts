@@ -1,59 +1,29 @@
-// import { NextResponse } from "next/server";
-// import axios from "axios";
-
-// const API_KEY = "cal_live_eb4258035eb5e1230ceaaf1d889bf6d1"; // Mets ta vraie clé API
-// const USERNAME = "daniel-gbogou-y44moc"; // Mets ton identifiant Cal.com
-
-// export async function GET() {
-//   try {
-//     console.log("📡 Envoi de la requête à l'API Cal.com...");
-//     const response = await axios.get(
-//       `https://api.cal.com/v1/booking/slots?username=${USERNAME}`,
-//       {
-//         headers: {
-//           Authorization: `Bearer ${API_KEY}`,
-//         },
-//       }
-//     );
-//     console.log("✅ Réponse API :", response.data);
-//     return NextResponse.json(response.data);
-//   } catch (error) {
-//     console.error("❌ Erreur API Cal.com :", error.response?.data || error.message);
-//     return NextResponse.json(
-//       { error: error.response?.data || "Impossible de récupérer les créneaux" },
-//       { status: error.response?.status || 500 }
-//     );
-//   }
-// }
-
 import { NextResponse } from "next/server";
 import axios from "axios";
 
-const API_KEY = "cal_live_eb4258035eb5e1230ceaaf1d889bf6d1"; // Mets ta vraie clé API
-const TEAM_MEMBERS = ["daniel-gbogou-y44moc","azerty89 "];  // Mets ton identifiant Cal.com
+const API_KEY = "cal_live_eb4258035eb5e1230ecaafd889bf6d1"; // Mets ta vraie clé API
+const USERNAME = "daniel-gbogou-y44moc"; // Mets ton identifiant Cal.com
+const id =  1381468
 
-export async function getAvailableSlots() {
+export async function GET() {
   try {
-    console.log("🔍 Envoi de la requête à l'API Cal.com...");
-    
-    const slots = await Promise.all(
-      TEAM_MEMBERS.map(async (member) => {
-        const response = await axios.get(
-          `https://api.cal.com/v1/booking/slots?username=${member}`,
-          {
-            headers: {
-              Authorization: `Bearer ${API_KEY}`,
-            },
-          }
-        );
-        return { member, slots: response.data };
-      })
+    console.log("✅ Envoi de la requête à Cal.com...");
+    const response = await fetch(
+      `https://api.cal.com/v1/booking/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${API_KEY}`,
+        },
+      }
     );
-
-    console.log("✅ Réponse reçue :", slots);
-    return slots;
+    const data = await response.json();
+    console.log("✅ Réponse API :", JSON.stringify(data, null, 2));
+    return NextResponse.json(data);
   } catch (error) {
-    console.error("❌ Erreur API Cal.com :", error);
-    return [];
+    console.error("❌ Erreur API Cal.com :", (error as any).response?.data || (error as any).message);
+    return NextResponse.json({
+      error: (error as any).response?.data || "Impossible de récupérer les créneaux",
+      status: (error as any).response?.status || 500
+    });
   }
 }
