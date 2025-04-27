@@ -1,114 +1,124 @@
 {
-  
-  
-  "name": "my-app",
-  
-  
-  "version": "0.1.0",
-  
-  
-  "private": true,
-  
-  
-  "scripts": {
-  
-  
-    
-  
-  "dev": "next dev --experimental-https",
-  
-  
-    
-  
-  "build": "next build",
-  
-  
-    
-  
-  "start": "next start",
-  
-  
-    
-  
-  "lint": "next lint"
-  
-  
-  },
-  
-  
-  "dependencies": {
-  
-  
-    
-  
-  "@calcom/embed-react": "^1.5.2",
-  
-  
-    
-  
-  "autoprefixer": "^10.0.0",
-  
-  
-    
-  
-  "axios": "^1.7.9",
-  
-  
-    
-  
-  "next": "latest",
-  
-  
-    
-  
-  "postcss": "^8.0.0",
-  
-  
-    
-  
-  "react": "latest",
-  
-  
-    
-  
-  "react-dom": "latest",
-  
-  
-    
-  
-  "tailwindcss": "^3.0.0"
-  
-  
-  },
-  
-  
-  "devDependencies": {
-  
-  
-    
-  
-  "@types/node": "22.13.4",
-  
-  
-    
-  
-  "@types/react": "19.1.2",
-  
-  
-    
-  
-  "eslint": "latest",
-  
-  
-    
-  
-  "eslint-config-next": "latest",
-  
-  
-    
-  
-  "typescript": "5.7.3"
-  
-  
-  }
+  
+  
+"name": "my-app",
+  
+  
+"version": "0.1.0",
+  
+  
+"private": true,
+  
+  
+"scripts": {
+  
+  
+  
+  
+"dev": "next dev --experimental-https",
+  
+  
+  
+  
+"build": "next build",
+  
+  
+  
+  
+"start": "next start",
+  
+  
+  
+  
+"lint": "next lint"
+  
+  
+},
+  
+  
+"dependencies": {
+  
+  
+  
+  
+"@calcom/embed-react": "^1.5.2",
+  
+  
+  
+  
+"@stripe/stripe-js": "^7.2.0",
+  
+  
+  
+  
+"autoprefixer": "^10.0.0",
+  
+  
+  
+  
+"axios": "^1.7.9",
+  
+  
+  
+  
+"next": "latest",
+  
+  
+  
+  
+"postcss": "^8.0.0",
+  
+  
+  
+  
+"react": "latest",
+  
+  
+  
+  
+"react-dom": "latest",
+  
+  
+  
+  
+"stripe": "^18.0.0",
+  
+  
+  
+  
+"tailwindcss": "^3.0.0"
+  
+  
+},
+  
+  
+"devDependencies": {
+  
+  
+  
+  
+"@types/node": "22.13.4",
+  
+  
+  
+  
+"@types/react": "19.1.2",
+  
+  
+  
+  
+"eslint": "latest",
+  
+  
+  
+  
+"eslint-config-next": "latest",
+  
+  
+  
+  
+"typescript": "5.7.3"
+  
+  
+}
 }

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import axios from "axios";
+// Removed duplicate import of axios
 
 const API_KEY = "cal_live_eb4258035eb5e1230ecaafd889bf6d1"; // Mets ta vraie clé API
 const USERNAME = "daniel-gbogou-y44moc"; // Mets ton identifiant Cal.com
@@ -27,3 +27,25 @@ export async function GET() {
     });
   }
 }
+
+import axios from "axios";
+
+// Removed duplicate declaration of API_KEY
+
+export async function getBooking(request: Request, { params }: { params: { bookingUid: string } }): Promise<NextResponse<any>> {
+  const { bookingUid } = params;
+
+  try {
+    const response = await axios.get(`https://api.cal.com/v1/bookings/${bookingUid}`, {
+      headers: {
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    });
+
+    return NextResponse.json(response.data);
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ error: "Erreur récupération réservation" }, { status: 500 });
+  }
+}
+
